@@ -258,5 +258,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMotor
   gravity: -9.8
-  speed: 5
+  speed: 6.2
   rotationSpeed: 720

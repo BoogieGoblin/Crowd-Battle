@@ -7,6 +7,8 @@ public class InputManager : MonoBehaviour
     PlayerInput.OnFootActions onFoot;
 
     PlayerMotor motor;
+    [SerializeField] SpawnRadiusVisual radiusVisual;
+    [SerializeField] float attackRadius = 5f;
 
     void Awake()
     {
@@ -23,15 +25,17 @@ public class InputManager : MonoBehaviour
     void OnEnable()
     {
         onFoot.Enable();
+        onFoot.Deploy.performed += ctx => radiusVisual.TryActivate(transform.position, attackRadius);
     }
 
     void OnDisable()
     {
         onFoot.Disable();
+        onFoot.Deploy.performed -= ctx => radiusVisual.TryActivate(transform.position, attackRadius);
     }
 
     void CoreMovements()
     {
-         motor.ProcessMove(onFoot.Movement.ReadValue<Vector2>());
+        motor.ProcessMove(onFoot.Movement.ReadValue<Vector2>());
     }
 }
