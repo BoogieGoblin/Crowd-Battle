@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Animator anim;
     [SerializeField] private string targetTag = "Player";
     [SerializeField] private float chaseRange = 20f;
-    [SerializeField] private int damage = 30;
+    [SerializeField] private int damage = 15;
 
     // Track the target as a class variable so AttackHitEvent can read it
     private GameObject currentTarget;

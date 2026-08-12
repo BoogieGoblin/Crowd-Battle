@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5522795779092900112}
   - component: {fileID: 5885089375148262405}
   - component: {fileID: 1389779592397607018}
+  - component: {fileID: 460618578236906916}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -52,8 +53,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InputManager
   motor: {fileID: 3002133836928425440}
-  radiusVisual: {fileID: 4987343491360603296}
-  attackRadius: 5
+  spawnRadiusVisual: {fileID: 4987343491360603296}
+  primaryAttack: {fileID: 460618578236906916}
 --- !u!114 &3002133836928425440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,6 +197,8 @@ MonoBehaviour:
   lineWidth: 0.05
   activeDuration: 3
   cooldownTime: 5
+  objectPooler: {fileID: 0}
+  spawnCount: 5
 --- !u!54 &5522795779092900112
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -258,6 +261,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
   healthBar: {fileID: 3739917790516953069}
+--- !u!114 &460618578236906916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1790188123905408938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b8966c5a2585694995b3f9b4c7ad25e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrimaryAttack
+  attackRadius: 6
+  enemyTag: Enemy
+  damage: 20
 --- !u!1 &2251467553125354625
 GameObject:
   m_ObjectHideFlags: 0
