@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerMotor : MonoBehaviour
 {
     [SerializeField] private Rigidbody rb;
+    [SerializeField] Animator anim;
     [SerializeField] private float speed = 10f;
     [SerializeField] private float rotationSpeed = 720f; // Increase if you want faster rotation
 
@@ -29,6 +30,7 @@ public class PlayerMotor : MonoBehaviour
         // 2. Only rotate and move when there is movement input
         if (moveDirection.sqrMagnitude > 0.01f)
         {
+            anim.SetBool("IsMoving", true);
             moveDirection.Normalize();
 
             // Smooth rotation towards input
@@ -40,6 +42,7 @@ public class PlayerMotor : MonoBehaviour
         }
         else
         {
+             anim.SetBool("IsMoving", false);
             // Stop horizontal movement instantly when idle
             rb.linearVelocity = new Vector3(0f, rb.linearVelocity.y, 0f);
         }
