@@ -1,17 +1,36 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    NavMeshAgent enemy;
-    [SerializeField] Transform target;
+    NavMeshAgent agent;
+    [SerializeField] string targetTag = "Player";
+    [SerializeField] float chaseRange = 20f;
 
     void Awake()
     {
-        enemy = GetComponent<NavMeshAgent>();
+        agent = GetComponent<NavMeshAgent>();
     }
-    void LateUpdate()
+    void FixedUpdate()
     {
-        enemy.SetDestination(target.position);
+        EngageTarget();
     }
+
+    void EngageTarget()
+    {
+        GameObject[] players = GameObject.FindGameObjectsWithTag(targetTag);
+
+        foreach(GameObject player in players)
+        {
+            float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+
+            if(distanceToPlayer <= chaseRange)
+            {
+                agent.SetDestination(player.transform.position);
+            }
+        }
+    }
+
+        
 }
