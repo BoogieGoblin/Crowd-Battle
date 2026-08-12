@@ -5,6 +5,7 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
     NavMeshAgent agent;
+    [SerializeField] Animator anim;
     [SerializeField] string targetTag = "Player";
     [SerializeField] float chaseRange = 20f;
 
@@ -27,6 +28,8 @@ public class Enemy : MonoBehaviour
 
             if(distanceToPlayer <= chaseRange)
             {
+                anim.SetBool("IsAttacking", false);
+                anim.SetBool("IsMoving", true);
                 agent.SetDestination(player.transform.position);
             }
 
@@ -39,6 +42,8 @@ public class Enemy : MonoBehaviour
 
     void Attack(GameObject target)
     {
+        anim.SetBool("IsAttacking", true);
+        anim.SetBool("IsMoving", false);
         Debug.Log("Attacking: " + target.name);
     }
 
