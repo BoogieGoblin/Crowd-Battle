@@ -29,7 +29,17 @@ public class Enemy : MonoBehaviour
             {
                 agent.SetDestination(player.transform.position);
             }
+
+            if(distanceToPlayer <= agent.stoppingDistance)
+            {
+                Attack(player);
+            }
         }
+    }
+
+    void Attack(GameObject target)
+    {
+        Debug.Log("Attacking: " + target.name);
     }
 
         

@@ -6,7 +6,7 @@ public class InputManager : MonoBehaviour
     PlayerInput playerInput;
     PlayerInput.OnFootActions onFoot;
 
-    PlayerMotor motor;
+    [SerializeField] PlayerMotor motor;
     [SerializeField] SpawnRadiusVisual radiusVisual;
     [SerializeField] float attackRadius = 5f;
 
@@ -38,4 +38,5 @@ public class InputManager : MonoBehaviour
     {
         motor.ProcessMove(onFoot.Movement.ReadValue<Vector2>());
     }
+
 }
