@@ -119,6 +119,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &9459086 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1790188123905408938, guid: f1fe22fcfc3a8ba43920b2fec4dcc6fa, type: 3}
+  m_PrefabInstance: {fileID: 6735038667104850404}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &9459091 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4987343491360603296, guid: f1fe22fcfc3a8ba43920b2fec4dcc6fa, type: 3}
+  m_PrefabInstance: {fileID: 6735038667104850404}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9459086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bce54afca9feac849a3eedd7848875b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpawnRadiusVisual
+--- !u!114 &9459096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9459086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31ad5cb5a9d84ca4a808b54cf31049ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AllySpawner
+  spawnRadiusVisual: {fileID: 9459091}
+  spawnRadius: 10
+  allyCount: 5
 --- !u!1 &79934887
 GameObject:
   m_ObjectHideFlags: 0
@@ -1151,7 +1182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75094c8a8cde44a479a435261e04dd01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectPooler
-  prefab: {fileID: 0}
+  prefab: {fileID: 2475143629750999478, guid: 4a4d4e6e929cfce41aa5493ac51b1b8a, type: 3}
   poolSize: 20
 --- !u!4 &784180614
 Transform:
@@ -2613,10 +2644,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 808839221877575774, guid: f1fe22fcfc3a8ba43920b2fec4dcc6fa, type: 3}
+      propertyPath: allySpawner
+      value: 
+      objectReference: {fileID: 9459096}
     - target: {fileID: 1790188123905408938, guid: f1fe22fcfc3a8ba43920b2fec4dcc6fa, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4987343491360603296, guid: f1fe22fcfc3a8ba43920b2fec4dcc6fa, type: 3}
+      propertyPath: objectPooler
+      value: 
+      objectReference: {fileID: 784180613}
     - target: {fileID: 5069209232093321966, guid: f1fe22fcfc3a8ba43920b2fec4dcc6fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2668,7 +2707,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1790188123905408938, guid: f1fe22fcfc3a8ba43920b2fec4dcc6fa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9459096}
   m_SourcePrefab: {fileID: 100100000, guid: f1fe22fcfc3a8ba43920b2fec4dcc6fa, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpawnRadiusVisual : MonoBehaviour
 {
     private LineRenderer lineRenderer;
-    [SerializeField] Animator anim;
+    [SerializeField] private Animator anim;
 
     [Header("Visual Settings")]
     public int segments = 50;
@@ -16,7 +16,7 @@ public class SpawnRadiusVisual : MonoBehaviour
     public float cooldownTime = 5f;
 
     [Header("Spawning & Pooling")]
-    public ObjectPooler objectPooler; // Reference to your pool script
+    public ObjectPooler objectPooler;
     public int spawnCount = 5;
 
     private bool isOnCooldown = false;
@@ -52,7 +52,10 @@ public class SpawnRadiusVisual : MonoBehaviour
     {
         if (isOnCooldown) return;
 
-        anim.SetTrigger("Clone");
+        if (anim != null)
+        {
+            anim.SetTrigger("Clone");
+        }
 
         if (activeRoutine != null) StopCoroutine(activeRoutine);
         activeRoutine = StartCoroutine(ActivationRoutine(radius));
@@ -96,7 +99,11 @@ public class SpawnRadiusVisual : MonoBehaviour
 
     private void SpawnFromPoolInRadius(float radius, int count)
     {
-        if (objectPooler == null) return;
+        if (objectPooler == null)
+        {
+            Debug.LogWarning("[SpawnRadiusVisual] ObjectPooler is not assigned!", this);
+            return;
+        }
 
         for (int i = 0; i < count; i++)
         {
@@ -104,10 +111,10 @@ public class SpawnRadiusVisual : MonoBehaviour
             Vector3 localOffset = new Vector3(randomPoint.x, 0f, randomPoint.y);
             Vector3 spawnPosition = transform.TransformPoint(localOffset);
 
-            // Fetch from object pool instead of Instantiate
+            // Fetch pooled object
             GameObject spawnedObj = objectPooler.GetFromPool(spawnPosition, Quaternion.identity);
 
-            // Optional: link pool reference to object so it knows where to return
+            // Link origin pool so PooledObject knows where to return on despawn
             if (spawnedObj.TryGetComponent<PooledObject>(out var pooledObj))
             {
                 pooledObj.Initialize(objectPooler);

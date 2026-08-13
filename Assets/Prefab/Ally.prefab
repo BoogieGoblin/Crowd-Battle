@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3997717037008139423}
   - component: {fileID: 6397133988625446696}
   - component: {fileID: 9147782549689393614}
+  - component: {fileID: 3395036889600058084}
   m_Layer: 3
   m_Name: Ally
   m_TagString: Player
@@ -109,6 +110,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3395036889600058084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2475143629750999478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de70a88c7d5524a42a8e4570068a142e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PooledObject
 --- !u!1001 &1663060633775423147
 PrefabInstance:
   m_ObjectHideFlags: 0
