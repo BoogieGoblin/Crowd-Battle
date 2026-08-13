@@ -4,10 +4,18 @@ public class EnemyHealth : MonoBehaviour
 {
     int maxHealth = 100;
     int currentHealth;
+    ObjectPooler enemyPool;
     [SerializeField] HealthBar healthBar;
 
     void Start()
     {
+        GameObject poolObject = GameObject.Find("Enemy Pool");
+
+        if (poolObject != null)
+        {
+            enemyPool = poolObject.GetComponent<ObjectPooler>();
+        }
+        
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
     }
@@ -16,5 +24,10 @@ public class EnemyHealth : MonoBehaviour
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
+
+        if(currentHealth <= 0)
+        {
+            enemyPool.ReturnToPool(gameObject);
+        }
     }
 }
