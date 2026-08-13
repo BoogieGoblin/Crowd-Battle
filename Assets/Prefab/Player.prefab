@@ -70,7 +70,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMotor
   rb: {fileID: 5522795779092900112}
   anim: {fileID: 7940119672900981748}
-  speed: 6
+  speed: 7.3
   rotationSpeed: 720
 --- !u!120 &5883200465520148909
 LineRenderer:
@@ -194,6 +194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bce54afca9feac849a3eedd7848875b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnRadiusVisual
+  anim: {fileID: 7940119672900981748}
   segments: 50
   lineWidth: 0.05
   activeDuration: 3
@@ -252,9 +253,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b8966c5a2585694995b3f9b4c7ad25e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PrimaryAttack
-  attackRadius: 6
+  anim: {fileID: 7940119672900981748}
   enemyTag: Enemy
+  attackRadius: 4
   damage: 20
+  rotationSpeed: 15
+  lockYAxis: 1
 --- !u!136 &6620176913788745273
 CapsuleCollider:
   m_ObjectHideFlags: 0

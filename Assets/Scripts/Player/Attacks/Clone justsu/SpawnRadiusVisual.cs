@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpawnRadiusVisual : MonoBehaviour
 {
     private LineRenderer lineRenderer;
+    [SerializeField] Animator anim;
 
     [Header("Visual Settings")]
     public int segments = 50;
@@ -50,6 +51,8 @@ public class SpawnRadiusVisual : MonoBehaviour
     public void TryActivate(float radius)
     {
         if (isOnCooldown) return;
+
+        anim.SetTrigger("Clone");
 
         if (activeRoutine != null) StopCoroutine(activeRoutine);
         activeRoutine = StartCoroutine(ActivationRoutine(radius));
