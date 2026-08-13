@@ -2613,17 +2613,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 460618578236906916, guid: f1fe22fcfc3a8ba43920b2fec4dcc6fa, type: 3}
-      propertyPath: anim
-      value: 
-      objectReference: {fileID: 6735038667104850405}
     - target: {fileID: 1790188123905408938, guid: f1fe22fcfc3a8ba43920b2fec4dcc6fa, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 3002133836928425440, guid: f1fe22fcfc3a8ba43920b2fec4dcc6fa, type: 3}
-      propertyPath: speed
-      value: 7.3
       objectReference: {fileID: 0}
     - target: {fileID: 5069209232093321966, guid: f1fe22fcfc3a8ba43920b2fec4dcc6fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2678,11 +2670,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1fe22fcfc3a8ba43920b2fec4dcc6fa, type: 3}
---- !u!95 &6735038667104850405 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 7940119672900981748, guid: f1fe22fcfc3a8ba43920b2fec4dcc6fa, type: 3}
-  m_PrefabInstance: {fileID: 6735038667104850404}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
