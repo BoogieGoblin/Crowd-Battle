@@ -240,6 +240,7 @@ GameObject:
   - component: {fileID: 36268088879450803}
   - component: {fileID: 7510919085383316399}
   - component: {fileID: 1635996587095724360}
+  - component: {fileID: 8335858656672697940}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Enemy
@@ -278,7 +279,7 @@ MonoBehaviour:
   anim: {fileID: 1635996587095724360}
   targetTag: Player
   chaseRange: 20
-  damage: 30
+  damage: 10
 --- !u!195 &7510919085383316399
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -323,6 +324,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8335858656672697940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5773291958358902527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4e86df911825b14186d01d4ef5a0332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  healthBar: {fileID: 4560769139026857686}
 --- !u!1001 &1050193969595930634
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -388,6 +402,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e4cc655d0ab6f74385daa6eff9a73a7, type: 3}
+--- !u!114 &4560769139026857686 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3591641077436077788, guid: 9e4cc655d0ab6f74385daa6eff9a73a7, type: 3}
+  m_PrefabInstance: {fileID: 1050193969595930634}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02583f8751af9f6409dd43bdbc0b0e6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthBar
 --- !u!4 &7318461624804592224 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7711129905996206698, guid: 9e4cc655d0ab6f74385daa6eff9a73a7, type: 3}

@@ -7,8 +7,8 @@ public class InputManager : MonoBehaviour
     PlayerInput.OnFootActions onFoot;
 
     [SerializeField] PlayerMotor motor;
-    [SerializeField] SpawnRadiusVisual radiusVisual;
-    [SerializeField] float attackRadius = 5f;
+    [SerializeField] SpawnRadiusVisual spawnRadiusVisual;
+    [SerializeField] PrimaryAttack primaryAttack;
 
     void Awake()
     {
@@ -25,12 +25,14 @@ public class InputManager : MonoBehaviour
     void OnEnable()
     {
         onFoot.Enable();
-        onFoot.Deploy.performed += ctx => radiusVisual.TryActivate(transform.position, attackRadius);
+        onFoot.Deploy.performed += ctx => spawnRadiusVisual.TryActivate(10f);
+        onFoot.Attack.performed += ctx => primaryAttack.Attack();
     }
     void OnDisable()
     {
         onFoot.Disable();
-        onFoot.Deploy.performed -= ctx => radiusVisual.TryActivate(transform.position, attackRadius);
+        onFoot.Deploy.performed -= ctx => spawnRadiusVisual.TryActivate(10f);
+        onFoot.Attack.performed -= ctx => primaryAttack.Attack();
     }
 
     void CoreMovements()
