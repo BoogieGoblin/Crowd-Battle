@@ -75,7 +75,7 @@ public class Enemy : MonoBehaviour
     }
 
     // 3. Called strictly by Unity Animation Event at the hit frame
-    public void AttackHitEvent()
+    public void AttackHitEnemy()
     {
         if (currentTarget == null) return;
 
