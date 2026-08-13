@@ -3,41 +3,61 @@ using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
-    PlayerInput playerInput;
-    PlayerInput.OnFootActions onFoot;
+    private PlayerInput playerInput;
+    private PlayerInput.OnFootActions onFoot;
 
-    [SerializeField] PlayerMotor motor;
-    [SerializeField] SpawnRadiusVisual spawnRadiusVisual;
-    [SerializeField] PrimaryAttack primaryAttack;
+    [SerializeField] private PlayerMotor motor;
+    [SerializeField] private AllySpawner allySpawner;
+    [SerializeField] private PrimaryAttack primaryAttack;
 
     void Awake()
     {
         playerInput = new PlayerInput();
         onFoot = playerInput.OnFoot;
-        motor = GetComponent<PlayerMotor>();
+        if (motor == null) motor = GetComponent<PlayerMotor>();
+        if (allySpawner == null) allySpawner = GetComponent<AllySpawner>();
     }
 
     void FixedUpdate()
     {
-       CoreMovements();
+        CoreMovements();
     }
 
     void OnEnable()
     {
         onFoot.Enable();
-        onFoot.Deploy.performed += ctx => spawnRadiusVisual.TryActivate(10f);
-        onFoot.Attack.performed += ctx => primaryAttack.Attack();
+        onFoot.Deploy.performed += OnDeployPerformed;
+        onFoot.Attack.performed += OnAttackPerformed;
     }
+
     void OnDisable()
     {
         onFoot.Disable();
-        onFoot.Deploy.performed -= ctx => spawnRadiusVisual.TryActivate(10f);
-        onFoot.Attack.performed -= ctx => primaryAttack.Attack();
+        onFoot.Deploy.performed -= OnDeployPerformed;
+        onFoot.Attack.performed -= OnAttackPerformed;
+    }
+
+    private void OnDeployPerformed(InputAction.CallbackContext ctx)
+    {
+        if (allySpawner != null)
+        {
+            allySpawner.TriggerAllySpawn();
+        }
+    }
+
+    private void OnAttackPerformed(InputAction.CallbackContext ctx)
+    {
+        if (primaryAttack != null)
+        {
+            primaryAttack.Attack();
+        }
     }
 
     void CoreMovements()
     {
-        motor.ProcessMove(onFoot.Movement.ReadValue<Vector2>());
+        if (motor != null)
+        {
+            motor.ProcessMove(onFoot.Movement.ReadValue<Vector2>());
+        }
     }
-
 }

@@ -1151,7 +1151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75094c8a8cde44a479a435261e04dd01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectPooler
-  prefab: {fileID: 0}
+  prefab: {fileID: 2475143629750999478, guid: 4a4d4e6e929cfce41aa5493ac51b1b8a, type: 3}
   poolSize: 20
 --- !u!4 &784180614
 Transform:
@@ -2617,6 +2617,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4987343491360603296, guid: f1fe22fcfc3a8ba43920b2fec4dcc6fa, type: 3}
+      propertyPath: objectPooler
+      value: 
+      objectReference: {fileID: 784180613}
     - target: {fileID: 5069209232093321966, guid: f1fe22fcfc3a8ba43920b2fec4dcc6fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
