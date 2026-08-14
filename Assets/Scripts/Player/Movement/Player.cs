@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
 
-        if(currentHealth <= 0 && maxHealth == 20)
+        if(currentHealth <= 0 && maxHealth <= 20)
         {
             allyPooler.ReturnToPool(gameObject);
         }
