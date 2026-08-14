@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class AllyHealth : MonoBehaviour
 {
-    [SerializeField] int maxHealth = 100;
+    int maxHealth = 100;
     int currentHealth;
-    ObjectPooler allyPooler;
+    ObjectPooler allyPool;
     [SerializeField] HealthBar healthBar;
 
     void Start()
@@ -13,9 +13,9 @@ public class Player : MonoBehaviour
 
         if (poolObject != null)
         {
-            allyPooler = poolObject.GetComponent<ObjectPooler>();
+            allyPool = poolObject.GetComponent<ObjectPooler>();
         }
-
+        
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
     }
@@ -25,9 +25,9 @@ public class Player : MonoBehaviour
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
 
-        if(currentHealth <= 0 && maxHealth == 20)
+        if(currentHealth <= 0)
         {
-            allyPooler.ReturnToPool(gameObject);
+            allyPool.ReturnToPool(gameObject);
         }
     }
 }

@@ -183,7 +183,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
   enemyPool: {fileID: 0}
   spawnPoint: {fileID: 462071174414511752}
-  maxActiveEnemies: 5
+  maxActiveEnemies: 3
   spawnDelay: 15
 --- !u!1 &2152559504789393646
 GameObject:
