@@ -6,8 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Sandbox.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/Main Menu.unity
+    guid: ce383d5478cda094e9f9ff5fea473885
+  - enabled: 1
+    path: Assets/Scenes/Level1.unity
+    guid: 6090724e7854f954c9c5c7510bb320a1
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: 30e391dc1f0566845bc7a0be6ac81a8f
+  - enabled: 1
+    path: Assets/Scenes/Level3.unity
+    guid: 565a0bb7901089b449837f424394921e
+  - enabled: 1
+    path: Assets/Scenes/Level4.unity
+    guid: 10bcc770c34eb5a40919c1673e709043
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

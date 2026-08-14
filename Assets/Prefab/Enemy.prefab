@@ -52,7 +52,7 @@ MonoBehaviour:
   anim: {fileID: 1635996587095724360}
   targetTag: Player
   chaseRange: 20
-  damage: 10
+  damage: 5
 --- !u!195 &7510919085383316399
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -109,6 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4e86df911825b14186d01d4ef5a0332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  maxHealth: 100
   healthBar: {fileID: 4560769139026857686}
 --- !u!114 &-5376588134526457189
 MonoBehaviour:

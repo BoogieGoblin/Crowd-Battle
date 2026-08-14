@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    int maxHealth = 100;
+    [SerializeField] int maxHealth = 100;
     int currentHealth;
     ObjectPooler enemyPool;
     [SerializeField] HealthBar healthBar;
@@ -25,9 +25,13 @@ public class EnemyHealth : MonoBehaviour
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
 
-        if(currentHealth <= 0)
+        if(currentHealth <= 0 && gameObject.tag != "Spawner")
         {
             enemyPool.ReturnToPool(gameObject);
+        }
+        if(currentHealth <= 0 && gameObject.tag == "Spawner")
+        {
+            Destroy(gameObject);
         }
     }
 }
